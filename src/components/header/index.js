@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Theme from '../theme';
 import './Header.scss';
 
@@ -13,10 +12,10 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <Link to="/">
-        <img src="images/dpl.png" alt="" />
-      </Link>
+    <header id="header">
+      <a className="logo" href="/">
+        <img src="images/logo.png" alt="" />
+      </a>
       <Theme />
       <button className="nav-toggle" onClick={openNav}>
         <span className="hamburger"></span>
