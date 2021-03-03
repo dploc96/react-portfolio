@@ -45,8 +45,8 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact" id="contact">
-      <h2 className="section__title contact__title">Contact</h2>
+    <section id="contact">
+      <h2 className="title title--contact">Contact</h2>
       <form
         className="contact__form"
         onSubmit={handleSubmit(onSubmit)}
@@ -55,6 +55,7 @@ export default function Contact() {
         <label htmlFor="name">Name</label>
         <input
           id="name"
+          className="contact-form__input"
           type="text"
           name="name"
           ref={register({
@@ -68,10 +69,10 @@ export default function Contact() {
         {errors.name && (
           <span className="contact__error">* {errors.name.message}</span>
         )}
-        <br />
         <label htmlFor="subject">Subject</label>
         <input
           id="subject"
+          className="contact-form__input"
           type="text"
           name="subject"
           ref={register({
@@ -85,10 +86,10 @@ export default function Contact() {
         {errors.subject && (
           <span className="contact__error">* {errors.subject.message}</span>
         )}
-        <br />
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          className="contact-form__input"
           type="email"
           name="email"
           ref={register({
@@ -101,10 +102,10 @@ export default function Contact() {
             * Please enter a valid email address
           </span>
         )}
-        <br />
         <label htmlFor="message">Message</label>
         <textarea
           id="message"
+          className="contact-form__input"
           name="message"
           ref={register({
             required: true,
@@ -113,10 +114,8 @@ export default function Contact() {
         {errors.message && (
           <span className="contact__error">* Please enter a message</span>
         )}
-        <br />
-        <div className="contact__block-btn">
-          <input className="btn" type="submit" value="Send" />
-        </div>
+
+        <input className="btn btn--contact" type="submit" value="Send" />
       </form>
       <ToastContainer />
     </section>

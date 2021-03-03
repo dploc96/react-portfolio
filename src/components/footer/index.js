@@ -1,35 +1,35 @@
 import React from 'react';
-import './Footer.css';
+import './Footer.scss';
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <a href="mailto:dploc96@gmail.com" className="footer__link">
+    <footer id="footer">
+      <a href="mailto:dploc96@gmail.com" className="footer__email">
         dploc96@gmail.com
       </a>
-      <ul className="social-list">
-        <li className="social-list__item">
-          <a className="social-list__link" href="tel:0842575139">
+      <ul className="social">
+        <li className="social__item">
+          <a className="social-item__link" href="tel:0842575139">
             <i className="fas fa-phone"></i>
           </a>
         </li>
-        <li className="social-list__item">
+        <li className="social__item">
           <a
-            className="social-list__link"
+            className="social-item__link"
             href="https://www.linkedin.com/in/locphuocduong"
             target="blank"
           >
             <i className="fab fa-linkedin"></i>
           </a>
         </li>
-        <li className="social-list__item">
-          <a className="social-list__link" href="skype:live:dploc96?chat">
+        <li className="social__item">
+          <a className="social-item__link" href="skype:live:dploc96?chat">
             <i className="fab fa-skype"></i>
           </a>
         </li>
-        <li className="social-list__item">
+        <li className="social__item">
           <a
-            className="social-list__link"
+            className="social-item__link"
             href="https://github.com/dploc96"
             target="blank"
           >

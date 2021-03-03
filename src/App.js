@@ -1,14 +1,19 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from './components/footer';
 import Header from './components/header';
-import Portfolio from './portfolio';
+import Home from './components/home';
+import Skill from './components/skill';
+import Project from './components/project';
+import Contact from './components/contact';
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <Portfolio />
+        <Home />
+        <Skill />
+        <Project />
+        <Contact />
       </main>
       <Footer />
     </>

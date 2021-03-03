@@ -1,85 +1,91 @@
-html {
-  font-size: 10px;
-}
-
 *,
 *::before,
 *::after {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --font-family-primary: 'Lora', serif;
-  --font-family-secondary: 'Roboto Slab', serif;
+  --ff-primary: 'Source Sans Pro', sans-serif;
+  --ff-secondary: 'Source Code Pro', monospace;
 
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
+  --fw-reg: 300;
+  --fw-bold: 900;
 
-  --color-light: #fff;
-  --color-dark: #303030;
-  --color-accent: #78866b;
+  --clr-light: #fff;
+  --clr-dark: #303030;
+  --clr-dark-reg: #111;
+  --clr-accent: #16e0bd;
 
-  --font-size-h1: 4.8rem;
-  --font-size-h2: 3.6rem;
-  --font-size-h3: 2rem;
-  --font-size-body: 1.6rem;
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
 
-  --box-shadow: 0.4rem 0.4rem 1.2rem rgba(0, 0, 0, 0.25),
-    0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 739px) {
   :root {
-    --font-size-h1: 7.2rem;
-    --font-size-h2: 6rem;
-    --font-size-h3: 2.4rem;
-    --font-size-body: 1.8rem;
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.125rem;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--color-light);
-  color: var(--color-dark);
-  margin: 0;
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-body);
+  // background: var(--clr-light);
+  // color: var(--clr-dark);
+
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-}
 
-main {
-  display: flex;
-  flex-direction: column;
-}
+  &[data-theme='light'] {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+  }
 
-footer {
-  flex-shrink: 0;
+  &[data-theme='dark'] {
+    #header,
+    #home,
+    #project {
+      background-color: var(--clr-dark-reg);
+    }
+
+    .title--home,
+    .title--project {
+      color: var(--clr-light);
+    }
+
+    #contact .contact__form {
+      background-color: var(--clr-dark-reg);
+      color: var(--clr-light);
+
+      .contact-form__input {
+        background-color: var(--clr-dark);
+        color: var(--clr-light);
+      }
+    }
+  }
 }
 
 section {
-  padding: 8rem 3.2rem;
-}
-
-img {
-  display: block;
-  max-width: 100%;
+  padding: 5em 2em;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
-strong {
-  font-weight: var(--font-weight-bold);
-}
-
-.nav-toggle:focus {
-  outline: 0.3rem solid var(--color-accent);
-  outline-offset: 0.3rem;
-}
-
-/* Typography */
 h1,
 h2,
 h3 {
@@ -88,61 +94,59 @@ h3 {
 }
 
 h1 {
-  font-size: var(--font-size-h1);
+  font-size: var(--fs-h1);
 }
+
 h2 {
-  font-size: var(--font-size-h2);
+  font-size: var(--fs-h2);
 }
+
 h3 {
-  font-size: var(--font-size-h3);
+  font-size: var(--fs-h3);
 }
 
-.section__title {
-  margin-bottom: 1rem;
-}
-
-.section__title--intro {
-  font-weight: var(--font-weight-regular);
-}
-
-.section__title--intro strong {
+img {
   display: block;
+  max-width: 100%;
 }
 
-.section__subtitle {
-  margin: 0;
-  font-size: var(--font-size-h3);
+li {
+  list-style: none;
 }
 
-.section__subtitle--intro {
-  background: var(--color-accent);
-  padding: 0.4rem 1.6rem;
-  font-family: var(--font-family-secondary);
-  margin-bottom: 1.6rem;
-  color: var(--color-light);
+strong {
+  font-weight: var(--fw-bold);
+}
+
+:focus {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
 }
 
 .btn {
-  padding: 0.8rem 4rem;
-  background: var(--color-accent);
-  color: var(--color-light);
-  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 2.5em;
+  border: none;
+
+  background: var(--clr-accent);
+  color: var(--clr-dark);
+
   cursor: pointer;
-  font-size: 1.28rem;
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-weight: var(--font-weight-bold);
   transition: transform 200ms ease-in-out;
-  width: 100%;
-  margin-top: 1rem;
 }
 
 .btn:hover {
   transform: scale(1.1);
 }
 
-@media (min-width: 600px) {
-  .btn {
-    width: 20rem;
-  }
+.title {
+  margin-bottom: 0.25em;
+}
+
+.subtitle {
+  font-size: var(--fs-h3);
 }

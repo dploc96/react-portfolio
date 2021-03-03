@@ -1,44 +1,60 @@
-import React from 'react';
-import Theme from '../theme';
+import React, { useEffect } from 'react';
 import './Header.scss';
 
 export default function Header() {
+  const [theme, setTheme] = React.useState('light');
+  const nextTheme = theme === 'light' ? 'dark' : 'light';
+  console.log(nextTheme);
+
+  useEffect(() => {
+    document.body.dataset.theme = theme;
+  }, [theme]);
+
   const openNav = () => {
-    document.body.classList.toggle('nav-open');
+    document.body.classList.toggle('header__nav--open');
   };
 
   const openLink = () => {
-    document.body.classList.remove('nav-open');
+    document.body.classList.remove('header__nav--open');
   };
 
   return (
     <header id="header">
-      <a className="logo" href="/">
-        <img src="images/logo.png" alt="" />
-      </a>
-      <Theme />
-      <button className="nav-toggle" onClick={openNav}>
-        <span className="hamburger"></span>
+      <div className="header__switch">
+        <input
+          type="checkbox"
+          id="header-switch__check"
+          className="header-switch__check"
+          onClick={() => setTheme(nextTheme)}
+        />
+        <label htmlFor="header-switch__check">
+          <i className="fas fa-moon"></i>
+          <i className="fas fa-sun"></i>
+          <div className="header-switch__ball"></div>
+        </label>
+      </div>
+      <button className="header__menu-icon" onClick={openNav}>
+        <span></span>
       </button>
-      <nav className="nav">
-        <ul className="nav__list">
-          <li className="nav__item">
-            <a href="#home" className="nav__link" onClick={openLink}>
+      <nav className="header__nav">
+        <ul className="header-nav__list">
+          <li>
+            <a href="#" onClick={openLink}>
               Home
             </a>
           </li>
-          <li className="nav__item">
-            <a href="#skill" className="nav__link" onClick={openLink}>
+          <li>
+            <a href="#skill" onClick={openLink}>
               Skills
             </a>
           </li>
-          <li className="nav__item">
-            <a href="#project" className="nav__link" onClick={openLink}>
+          <li>
+            <a href="#project" onClick={openLink}>
               Pet Projects
             </a>
           </li>
-          <li className="nav__item">
-            <a href="#contact" className="nav__link" onClick={openLink}>
+          <li>
+            <a href="#contact" onClick={openLink}>
               Contact
             </a>
           </li>
