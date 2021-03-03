@@ -5,20 +5,34 @@
 
   .project__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1em;
 
     .project__item {
-      background: var(--clr-accent);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      border-radius: 0.3rem;
       overflow: hidden;
+      transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
+        opacity 250ms linear;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        transform: scale(1.05);
+      }
 
       img {
-        transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
-          opacity 250ms linear;
+        padding: auto 0;
+        width: 100%;
+      }
 
-        &:hover {
-          transform: scale(1.2);
-          opacity: 0.5;
-        }
+      h4 {
+        position: relative;
+        bottom: 0.5rem;
+        left: 0.5rem;
+        right: 0.5rem;
       }
 
       &:focus {
