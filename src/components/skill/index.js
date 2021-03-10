@@ -1,6 +1,6 @@
 import React from 'react';
+import cv from '../../cv.pdf';
 import './Skill.scss';
-import myCV from '../../myCV.pdf';
 
 export default function SKill() {
   return (
@@ -38,7 +38,7 @@ export default function SKill() {
           </ul>
         </div>
       </div>
-      <a target="_blank" href="{myCV}" className="btn">
+      <a target="_blank" href={cv} className="btn">
         Download CV
       </a>
     </section>

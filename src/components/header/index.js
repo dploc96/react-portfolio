@@ -4,7 +4,6 @@ import './Header.scss';
 export default function Header() {
   const [theme, setTheme] = React.useState('light');
   const nextTheme = theme === 'light' ? 'dark' : 'light';
-  console.log(nextTheme);
 
   useEffect(() => {
     document.body.dataset.theme = theme;
