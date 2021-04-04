@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.scss';
 
 export default function Header() {
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = useState('light');
   const nextTheme = theme === 'light' ? 'dark' : 'light';
 
   useEffect(() => {
